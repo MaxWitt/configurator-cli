@@ -51,20 +51,20 @@ export const conflicts = (options) => {
 
   // Performance pack
   if (options.upgrade?.includes("performance")) {
-    if (options.version !== "LRDM-P") {
+    if (options.version && options.version !== "LRDM-P") {
       result.valid = false;
       result.messages.push(
         `Cannot combine Performance pack with ${options.version}`
       );
     }
-    if (options.wheels !== "performance") {
+    if (options.wheels && options.wheels !== "performance") {
       result.valid = false;
       result.messages.push(
         `Cannot combine Performance pack with ${options.wheels}" wheels`
       );
     }
   }
-  if (options.wheels === "performance" && options.version !== "LRDM") {
+  if (options.wheels === "performance" && options.version && options.version !== "LRDM-P") {
     result.valid = false;
     result.messages.push(
       `Cannot combine Performance pack with ${options.version}`
