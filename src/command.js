@@ -2,7 +2,7 @@ import { Command, Option } from "commander";
 import { expand, translate, validate } from "./engine.js";
 import { cars, markets } from "./cars/index.js";
 
-const program = new Command();
+export const program = new Command();
 program.name("configurator").description("Configure your Polestar");
 
 Object.entries(cars).forEach(([name, car]) => {
@@ -58,4 +58,3 @@ Object.entries(cars).forEach(([name, car]) => {
     });
 });
 
-program.parse();

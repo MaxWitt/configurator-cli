@@ -56,7 +56,7 @@ export const conflicts = (options) => {
     if (options.wheels && options.wheels !== "performance") {
       result.valid = false;
       result.messages.push(
-        `Cannot combine Performance pack with ${options.wheels}" wheels`
+        `Cannot combine Performance pack with ${options.wheels} wheels`
       );
     }
   }
