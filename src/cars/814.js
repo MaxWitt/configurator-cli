@@ -144,7 +144,7 @@ export const requirements = (options) => {
 export const defaults = (options) => {
   return {
     version: "LRSM",
-    upgrades: [],
+    upgrade: [],
     single: [],
     exterior: "magnesium",
     interior: "charcoal",

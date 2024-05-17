@@ -124,7 +124,7 @@ export const requirements = (options) => {
 export const defaults = (options) => {
   return {
     version: 'SRSM',
-    upgrades: [],
+    upgrade: [],
     single: [],
     exterior: 'magnesium',
     interior: '3d-charcoal',
