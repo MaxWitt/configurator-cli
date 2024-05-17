@@ -146,7 +146,7 @@ export const defaults = (options) => {
     version: "LRSM",
     upgrades: [],
     single: [],
-    paint: "magnesium",
+    exterior: "magnesium",
     interior: "charcoal",
     wheels: "aero",
     ...options,

@@ -1,21 +1,14 @@
 import { cars, markets } from "./cars/index.js";
 
-export const validate = (options) => {
-  const car = Object.values(cars).find(car => car.model === options.model);
-  return car.conflicts(options);
-};
-
-export const expand = (options) => {
-  const car = Object.values(cars).find(car => car.model === options.model);
+export const expand = (options, car) => {
   if (!options.market) {
     options.market = "se";
   }
   return car.defaults(car.requirements(options));
 };
 
-export const translate = (options) => {
+export const translate = (options, car) => {
   const result = [];
-  const car = Object.values(cars).find(car => car.model === options.model);
 
   // 1-3 Model
   result[0] = car.model;
@@ -36,7 +29,7 @@ export const translate = (options) => {
   result[5] = markets[options.market];
 
   // 13-17 Exterior
-  result[6] = car.features.exterior[options.paint];
+  result[6] = car.features.exterior[options.exterior];
 
   // 18-24 Interior
   result[7] = car.features.interior[options.interior];

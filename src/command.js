@@ -1,5 +1,5 @@
 import { Command, Option } from "commander";
-import { expand, translate, validate } from "./engine.js";
+import { expand, translate } from "./engine.js";
 import { cars, markets } from "./cars/index.js";
 
 export const program = new Command();
@@ -33,7 +33,7 @@ Object.entries(cars).forEach(([name, car]) => {
   }
   command
     .addOption(
-      new Option("-p, --paint <name>", "Exterior paint job").choices(
+      new Option("-e, --exterior <name>", "Exterior exterior job").choices(
         Object.keys(car.features.exterior)
       )
     )
@@ -49,12 +49,12 @@ Object.entries(cars).forEach(([name, car]) => {
     )
     .action((args) => {
       const options = { ...args, model: car.model };
-      const validation = validate(options);
+      const validation = car.conflicts(options);
       if (!validation.valid) {
         console.error(validation.messages.join("\n"));
         return;
       }
-      console.log(translate(expand(options)));
+      console.log(translate(expand(options, car), car));
     });
 });
 
