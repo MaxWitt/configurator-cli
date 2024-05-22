@@ -3,7 +3,7 @@ import { expand, translate } from "./engine.js";
 import { cars, markets } from "./cars/index.js";
 
 export const program = new Command();
-program.name("configurator").description("Configure your Polestar");
+program.name("configurator").description("Configure your Polestar car");
 
 Object.entries(cars).forEach(([name, car]) => {
   const command = program
@@ -15,7 +15,7 @@ Object.entries(cars).forEach(([name, car]) => {
       ).choices(Object.keys(markets))
     )
     .addOption(
-      new Option("-v, --version <name>", "Which motor version").choices(
+      new Option("-v, --version <name>", "Motor version").choices(
         Object.keys(car.features.versions)
       )
     )
@@ -33,7 +33,7 @@ Object.entries(cars).forEach(([name, car]) => {
   }
   command
     .addOption(
-      new Option("-e, --exterior <name>", "Exterior exterior job").choices(
+      new Option("-e, --exterior <name>", "Exterior color finish").choices(
         Object.keys(car.features.exterior)
       )
     )
