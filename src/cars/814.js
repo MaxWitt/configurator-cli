@@ -46,7 +46,7 @@ export const conflicts = (options) => {
     messages: [],
   };
   // Performance Pack
-  if (options.upgrade.includes("performance")) {
+  if (options.upgrade?.includes("performance")) {
     if (options.version && options.version !== "LRDM") {
       result.valid = false;
       result.messages.push(
@@ -58,6 +58,10 @@ export const conflicts = (options) => {
       result.messages.push(
         `Cannot combine Performance pack with ${options.wheels} wheels`
       );
+    }
+    if (options.upgrade?.includes('pro')) {
+      result.valid = false;
+      result.messages.push(`Cannot combine Performance and Pro packs`);
     }
   }
   if (
