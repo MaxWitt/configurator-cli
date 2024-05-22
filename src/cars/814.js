@@ -102,6 +102,9 @@ export const requirements = (options) => {
   if (options.upgrade === undefined) {
     options.upgrade = [];
   }
+  if (options.single === undefined) {
+    options.single = [];
+  }
 
   // Upgrades - Performance
   if (
