@@ -1,9 +1,11 @@
 import * as PS2 from './534.js';
+import * as PS2_25 from './534-25.js';
 import * as PS3 from './359.js';
 import * as PS4 from './814.js';
 
 export const cars = {
   "polestar-2": PS2,
+  "polestar-2-25": PS2_25,
   "polestar-3": PS3,
   "polestar-4": PS4,
 }
